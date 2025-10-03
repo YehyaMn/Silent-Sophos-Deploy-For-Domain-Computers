@@ -109,6 +109,10 @@ On each PC, verify installation and GPO application:
 ![WhatsApp Image 2025-10-03 at 3 18 35 PM](https://github.com/user-attachments/assets/0c75ed3c-0aaf-47ef-ac5e-1a43bb3102fc)
 
 Or just check the Program files\Sophos
+
+Or Check task manager
+![WhatsApp Image 2025-10-03 at 3 33 37 PM (1)](https://github.com/user-attachments/assets/2860ae95-f1b2-4a57-ab9f-db96006a5cf7)
+
 Or use Procmon if SophosSetup is working as shown below
 ![WhatsApp Image 2025-10-03 at 3 33 36 PM](https://github.com/user-attachments/assets/81ba6d01-ab4e-4349-8d02-df393a2a93bd)
 
