@@ -26,7 +26,7 @@ License
 
 # Prerequisites:
 Windows AD Domain.
-Put the Sophos installer in a Shared folder for installer and logs to check who the code ran on (optional):
+Put the Sophos installer in a Shared folder for installer and logs to check who the code ran on:
 ```
 \\Server\IT\SophosSetup.exe 
 \\Server\IT\Logs
