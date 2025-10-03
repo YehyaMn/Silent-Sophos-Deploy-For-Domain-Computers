@@ -24,10 +24,8 @@ Step 6 — Verification
 License
 
 
-Prerequisites:
-
+# Prerequisites:
 Windows AD Domain.
-
 Put the Sophos installer in a Shared folder for installer and logs to check who the code ran on (optional):
 ```
 \\Server\IT\SophosSetup.exe 
@@ -38,6 +36,7 @@ Installer must be unblocked:
 ```
 Unblock-File "\\Server\IT\SophosSetup.exe"
 ```
+Or from properties and put checkbox on the Unblock
 
 Target computers must have Read access to the installer and Write access to the logs folder.
 
