@@ -127,4 +127,4 @@ Or use Procmon if SophosSetup is working as shown below
 ``gpresult /r /scope:computer``
 
 # License
-MIT License – feel free to use and adapt for your organization.
+feel free to use and adapt for your organization.
