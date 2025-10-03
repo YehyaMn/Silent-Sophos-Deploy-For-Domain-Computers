@@ -23,7 +23,8 @@ Step 6 — Verification
 
 License
 
-Prerequisites
+
+Prerequisites:
 
 Windows AD Domain.
 
