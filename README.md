@@ -29,8 +29,8 @@ Windows AD Domain.
 
 Shared folder for installer and logs:
 
-\\Base\IT\SophosSetup.exe
-\\Base\IT\Logs
+\\Server\IT\SophosSetup.exe 
+\\Server\IT\Logs
 
 
 Installer must be unblocked:
