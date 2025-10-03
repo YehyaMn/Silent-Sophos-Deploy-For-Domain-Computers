@@ -85,6 +85,13 @@ Remove Authenticated Users.
 Add ``Sophos_Deployment_Computers`` (AD Security group of target PCs).
 ![WhatsApp Image 2025-10-03 at 3 18 34 PM](https://github.com/user-attachments/assets/a5d20b86-88c5-45fa-a5ca-ab92bbec360f)
 
+Create ``Security group`` under Computers OU 
+![WhatsApp Image 2025-10-03 at 4 04 31 PM](https://github.com/user-attachments/assets/a1c347ef-9475-4a20-8f9d-79f98d3c0b41)
+
+add the needed computers to the security group:
+
+![WhatsApp Image 2025-10-03 at 4 04 01 PM](https://github.com/user-attachments/assets/fc559687-6c6c-4dd4-bb65-f019df800df2)
+
 Ensure the group has Read & Apply group policy in Delegation.
 
 # Step 5 — Deployment
