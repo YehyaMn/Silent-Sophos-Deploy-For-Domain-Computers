@@ -27,31 +27,32 @@ Prerequisites
 
 Windows AD Domain.
 
-Shared folder for installer and logs:
-
+Put the Sophos installer in a Shared folder for installer and logs to check who the code ran on (optional):
+```
 \\Server\IT\SophosSetup.exe 
 \\Server\IT\Logs
-
+```
 
 Installer must be unblocked:
-
-Unblock-File "\\Base\IT\SophosSetup.exe"
-
+```
+Unblock-File "\\Server\IT\SophosSetup.exe"
+```
 
 Target computers must have Read access to the installer and Write access to the logs folder.
 
 Step 1 — Install AD and GPMC Tools (Windows 11)
 # Install Active Directory and Group Policy Management tools
-Add-WindowsCapability -Online -Name "RSAT:ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+```powershell
+Add-WindowsCapability -Online -Name "RSAT:ActiveDirectory.DS-LDS.Tools ~~~0.0.1.0"
 Add-WindowsCapability -Online -Name "RSAT:GroupPolicy.Management.Tools~~~~0.0.1.0"
-
+```
 # Or launch GUI
-gpmc.msc
+``gpmc.msc``
 
 Step 2 — Create GPO for Sophos Deployment
-
+``
 Open GPMC → Group Policy Objects → New → Install_Sophos_Target.
-
+``
 Edit → Computer Configuration → Windows Settings → Scripts (Startup) → Add install_sophos.bat.
 
 Step 3 — Startup Script (install_sophos.bat)
@@ -60,22 +61,22 @@ REM === Check if Sophos already installed ===
 IF EXIST "C:\Program Files\Sophos\Sophos Endpoint Agent" exit /b 0
 
 REM === Run the Sophos installer silently and log output ===
-\\Base\IT\SophosSetup.exe --quiet >> "\\Base\IT\Logs\%COMPUTERNAME%_sophos.log" 2>&1
+\\Server\IT\SophosSetup.exe --quiet >> "\\Server\IT\Logs\%COMPUTERNAME%_sophos.log" 2>&1
 
 
 Notes:
 
-Runs silently with --quiet.
+Runs silently with ``--quiet.``
 
 Prevents re-install if Sophos is already installed.
 
-Creates a log per computer in \\Base\IT\Logs.
+Creates a log per computer in ``\\Server\IT\Logs.``
 
 Step 4 — Configure Security Filtering
 
 Remove Authenticated Users.
 
-Add Sophos_Deployment_Computers (AD group of target PCs).
+Add ``Sophos_Deployment_Computers`` (AD group of target PCs).
 
 Ensure the group has Read & Apply group policy in Delegation.
 
@@ -87,20 +88,22 @@ No admin password or user interaction required.
 
 Logs are written per PC:
 
-\\Base\IT\Logs\<PCNAME>_sophos.log
+``\\Server\IT\Logs\<PCNAME>_sophos.log``
 
 Step 6 — Verification
 
 On each PC, verify installation and GPO application:
 
 # Verify folder exists
-Test-Path "C:\Program Files\Sophos\Sophos Endpoint Agent"
+``Test-Path "C:\Program Files\Sophos\Sophos Endpoint Agent"``
 
 # Verify Sophos services are running
-Get-Service *sophos*
+``Get-Service *sophos*``
+Or just check the Program files\Sophos
+Or use Procmon if SophosSetup is working
 
 # Confirm GPO applied
-gpresult /r /scope:computer
+``gpresult /r /scope:computer``
 
 License
 
