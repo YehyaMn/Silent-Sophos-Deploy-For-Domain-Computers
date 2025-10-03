@@ -37,6 +37,7 @@ Installer must be unblocked:
 Unblock-File "\\Server\IT\SophosSetup.exe"
 ```
 Or from properties and put checkbox on the Unblock
+![WhatsApp Image 2025-10-03 at 3 35 57 PM (1)](https://github.com/user-attachments/assets/b6271517-d5d9-43cf-a572-feb059d1cee4)
 
 Target computers must have Read access to the installer and Write access to the logs folder.
 
@@ -53,6 +54,9 @@ Add-WindowsCapability -Online -Name "RSAT:GroupPolicy.Management.Tools~~~~0.0.1.
 ``
 Open GPMC → Group Policy Objects → New → Install_Sophos_Target.
 ``
+Enforce the GPO
+![WhatsApp Image 2025-10-03 at 3 18 32 PM](https://github.com/user-attachments/assets/9308cad2-37e8-4331-994f-f444a3c03041)
+
 Edit → Computer Configuration → Windows Settings → Scripts (Startup) → Add install_sophos.bat.
 
 # Step 3 — Startup Script (install_sophos.bat)
