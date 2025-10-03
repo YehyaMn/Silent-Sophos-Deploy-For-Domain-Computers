@@ -33,11 +33,12 @@ Put the Sophos installer in a Shared folder for installer and logs to check who 
 ```
 
 Installer must be unblocked:
+![WhatsApp Image 2025-10-03 at 3 35 57 PM](https://github.com/user-attachments/assets/51eed5ff-01b3-44d0-89a8-8c606476f9b7)
+
 ```
 Unblock-File "\\Server\IT\SophosSetup.exe"
 ```
 Or from properties and put checkbox on the Unblock
-![WhatsApp Image 2025-10-03 at 3 35 57 PM (1)](https://github.com/user-attachments/assets/b6271517-d5d9-43cf-a572-feb059d1cee4)
 
 Target computers must have Read access to the installer and Write access to the logs folder.
 
@@ -55,7 +56,7 @@ Add-WindowsCapability -Online -Name "RSAT:GroupPolicy.Management.Tools~~~~0.0.1.
 Open GPMC → Group Policy Objects → New → Install_Sophos_Target.
 ``
 Enforce the GPO
-![WhatsApp Image 2025-10-03 at 3 18 32 PM](https://github.com/user-attachments/assets/9308cad2-37e8-4331-994f-f444a3c03041)
+![WhatsApp Image 2025-10-03 at 3 18 32 PM](https://github.com/user-attachments/assets/ee29ca21-ba51-4436-8dad-2710139b5009)
 
 Edit → Computer Configuration → Windows Settings → Scripts (Startup) → Add install_sophos.bat.
 
@@ -78,9 +79,12 @@ Prevents re-install if Sophos is already installed.
 Creates a log per computer in ``\\Server\IT\Logs.``
 
 # Step 4 — Configure Security Filtering
+![WhatsApp Image 2025-10-03 at 3 18 33 PM](https://github.com/user-attachments/assets/cf196fd9-966d-4dee-9ec6-c53473a269ba)
 
 Remove Authenticated Users.
 Add ``Sophos_Deployment_Computers`` (AD group of target PCs).
+![Uploading WhatsApp Image 2025-10-03 at 3.18.34 PM.jpeg…]()
+
 
 Ensure the group has Read & Apply group policy in Delegation.
 
@@ -103,9 +107,11 @@ On each PC, verify installation and GPO application:
 
 # Verify Sophos services are running
 ``Get-Service *sophos*``
+![WhatsApp Image 2025-10-03 at 3 18 35 PM](https://github.com/user-attachments/assets/0c75ed3c-0aaf-47ef-ac5e-1a43bb3102fc)
 
 Or just check the Program files\Sophos
-Or use Procmon if SophosSetup is working
+Or use Procmon if SophosSetup is working as shown below
+![WhatsApp Image 2025-10-03 at 3 33 36 PM](https://github.com/user-attachments/assets/81ba6d01-ab4e-4349-8d02-df393a2a93bd)
 
 # Confirm GPO applied
 ``gpresult /r /scope:computer``
