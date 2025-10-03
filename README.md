@@ -40,22 +40,22 @@ Or from properties and put checkbox on the Unblock
 
 Target computers must have Read access to the installer and Write access to the logs folder.
 
-Step 1 — Install AD and GPMC Tools (Windows 11)
-# Install Active Directory and Group Policy Management tools
+# Step 1 — Install AD and GPMC Tools (Windows 11)
+ Install Active Directory and Group Policy Management tools
 ```powershell
 Add-WindowsCapability -Online -Name "RSAT:ActiveDirectory.DS-LDS.Tools ~~~0.0.1.0"
 Add-WindowsCapability -Online -Name "RSAT:GroupPolicy.Management.Tools~~~~0.0.1.0"
 ```
-# Or launch GUI
+ Or launch GUI
 ``gpmc.msc``
 
-Step 2 — Create GPO for Sophos Deployment
+# Step 2 — Create GPO for Sophos Deployment
 ``
 Open GPMC → Group Policy Objects → New → Install_Sophos_Target.
 ``
 Edit → Computer Configuration → Windows Settings → Scripts (Startup) → Add install_sophos.bat.
 
-Step 3 — Startup Script (install_sophos.bat)
+# Step 3 — Startup Script (install_sophos.bat)
 ```
 @echo off
 REM === Check if Sophos already installed ===
@@ -73,15 +73,14 @@ Prevents re-install if Sophos is already installed.
 
 Creates a log per computer in ``\\Server\IT\Logs.``
 
-Step 4 — Configure Security Filtering
+# Step 4 — Configure Security Filtering
 
 Remove Authenticated Users.
-
 Add ``Sophos_Deployment_Computers`` (AD group of target PCs).
 
 Ensure the group has Read & Apply group policy in Delegation.
 
-Step 5 — Deployment
+# Step 5 — Deployment
 
 PCs in the target group will install Sophos automatically on next reboot.
 
@@ -91,7 +90,7 @@ Logs are written per PC:
 
 ``\\Server\IT\Logs\<PCNAME>_sophos.log``
 
-Step 6 — Verification
+# Step 6 — Verification
 
 On each PC, verify installation and GPO application:
 
@@ -100,12 +99,12 @@ On each PC, verify installation and GPO application:
 
 # Verify Sophos services are running
 ``Get-Service *sophos*``
+
 Or just check the Program files\Sophos
 Or use Procmon if SophosSetup is working
 
 # Confirm GPO applied
 ``gpresult /r /scope:computer``
 
-License
-
+# License
 MIT License – feel free to use and adapt for your organization.
