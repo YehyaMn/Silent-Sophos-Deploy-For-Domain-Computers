@@ -82,7 +82,7 @@ Creates a log per computer in ``\\Server\IT\Logs.``
 ![WhatsApp Image 2025-10-03 at 3 18 33 PM](https://github.com/user-attachments/assets/cf196fd9-966d-4dee-9ec6-c53473a269ba)
 
 Remove Authenticated Users.
-Add ``Sophos_Deployment_Computers`` (AD Security group of target PCs).
+Add ``Sophos_Deployment`` (AD Security group of target PCs).
 ![WhatsApp Image 2025-10-03 at 3 18 34 PM](https://github.com/user-attachments/assets/a5d20b86-88c5-45fa-a5ca-ab92bbec360f)
 
 Create ``Security group`` under Computers OU 
