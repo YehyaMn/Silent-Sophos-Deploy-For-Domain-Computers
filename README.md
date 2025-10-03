@@ -10,10 +10,15 @@ Table of Contents
 Prerequisites
 
 Step 1 — Install AD and GPMC Tools
+
 Step 2 — Create GPO for Sophos Deployment
+
 Step 3 — Startup Script
+
 Step 4 — Configure Security Filtering
+
 Step 5 — Deployment
+
 Step 6 — Verification
 
 License
