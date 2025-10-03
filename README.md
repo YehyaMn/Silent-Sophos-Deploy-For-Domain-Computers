@@ -56,13 +56,14 @@ Open GPMC → Group Policy Objects → New → Install_Sophos_Target.
 Edit → Computer Configuration → Windows Settings → Scripts (Startup) → Add install_sophos.bat.
 
 Step 3 — Startup Script (install_sophos.bat)
+```
 @echo off
 REM === Check if Sophos already installed ===
 IF EXIST "C:\Program Files\Sophos\Sophos Endpoint Agent" exit /b 0
 
 REM === Run the Sophos installer silently and log output ===
 \\Server\IT\SophosSetup.exe --quiet >> "\\Server\IT\Logs\%COMPUTERNAME%_sophos.log" 2>&1
-
+```
 
 Notes:
 
